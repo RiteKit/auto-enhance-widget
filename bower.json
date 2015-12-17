@@ -2,7 +2,7 @@
   "name": "RiteTag-Widget",
   "description": "RiteTag Auto-Enhance Widget.",
   "main": "dist/ritetag.widget.min.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     "RiteTag"
   ],
