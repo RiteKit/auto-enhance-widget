@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+
+    <script src="../src/ritetag.widget.js"></script>
+    <style>
+        .thumnails .image {
+            max-width:200px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(document).on("click", ".open", function (e) {
+                e.preventDefault();
+                var widget = new RiteTag.Widget();
+                widget
+                        .open({
+                            tweet: $("#text").val(),
+                            images: $(".image").map(function () {
+                                return $(this).attr("src")
+                            }).toArray(),
+                            //networks: ["twitter", "facebook"],
+                            autoenhance:$(this).data("autoenhance")
+                        })
+                        .done(function (data) {
+                            console.log(data);
+                            if (data.result == true) {
+                                $("#text").val(data.tweet);
+                                $(".thumnails").empty();
+                                for (var i = 0; i < data.images.length; i++) {
+                                    $(".thumnails").append('<img class="image img-thumbnail" src="' + data.images[i] + '">');
+                                }
+                            }
+                        });
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="container">
+    <p>
+    <div class="form-group">
+        <label for="text">Tweet</label>
+        <textarea id="text" class="form-control">test</textarea>
+    </div>
+    <div class="form-group thumnails">
+        <img class="image img-thumbnail" src="https://ritetag.com/assets/img/logo.png">
+    </div>
+    <button data-autoenhance="1" class="btn btn-primary open">Autoenhance</button>
+    <button data-autoenhance="0" class="btn btn-default open">Optimize manualy</button>
+
+    </p>
+</div>
+</body>
+</html>
