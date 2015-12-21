@@ -1,5 +1,19 @@
 # RiteTag Auto-Enhance Widget #
 
+## UX Example ##
+
+a) User clicks RiteTag Auto-enhance button next to Send button in your composer 
+
+![image00.png](https://bitbucket.org/repo/q6E6Ep/images/453636314-image00.png)
+
+b) RiteTag composer (iframe) loads data from original composer
+
+![image01.png](https://bitbucket.org/repo/q6E6Ep/images/2751996350-image01.png)
+
+c) After user hits Save, changes are loaded back to original composer 
+
+![image03.png](https://bitbucket.org/repo/q6E6Ep/images/3886801113-image03.png)
+
 ## Basic Usage ##
 
 ### 1) Include the JS file in your page ###
