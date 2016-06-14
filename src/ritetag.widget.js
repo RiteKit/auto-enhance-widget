@@ -9,7 +9,7 @@
     Widget = (function() {
         var baseUrl = "https://ritetag.com/extension/toolkit?";
         var keys = ["tweet","images","networks","autoenhance"];
-        var buildUrl = function(data) {
+        var buildUrl = function(data,bu) {
             var query = [];
             query.push("modal=1");
             query.push("host="+encodeURIComponent(window.location.protocol+"//"+window.location.host));
@@ -20,7 +20,7 @@
                 }
             }
 
-            return baseUrl+query.join("&");
+            return (bu?bu:baseUrl)+query.join("&");
         };
         var buildQuery = function (key,item){
             if(Array.isArray(item)){
@@ -94,7 +94,8 @@
             return frame;
         };
 
-        function Widget() {
+        function Widget(baseUrl) {
+            this.baseUrl = baseUrl;
             this.callbacks = [];
             this.frame = {};
             this.callback = creteCallback(this.callbacks);
@@ -106,7 +107,7 @@
             return this;
         };
         Widget.prototype.open = function(data) {
-            var url = buildUrl(data);
+            var url = buildUrl(data,this.baseUrl);
             this.frame = initExtension(url,this.callback);
             return this;
         };
