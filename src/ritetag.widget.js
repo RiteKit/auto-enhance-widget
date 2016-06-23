@@ -56,9 +56,9 @@
 
         var initExtension = function(src,callback) {
             var image = document.createElement("img");
-            image.src = "https://ritetag.com/assets/img/loader.gif";
+            image.src = "https://1487482361.rsc.cdn77.org/assets/img/loader.gif";
             image.setAttribute("style",
-                "background-image:url('https://ritetag.com/assets/img/logo.png');" +
+                "background-image:url('https://1487482361.rsc.cdn77.org/assets/img/common/ritekit.svg');" +
                 "z-index: 999999;" +
                 "position: fixed !important;" +
                 "top: 30%;" +
@@ -67,7 +67,7 @@
                 "height: 200px;" +
                 "margin-top: -100px;" +
                 "margin-left: -100px;" +
-                "background-size: 115px;" +
+                "background-size: 80px;" +
                 "background-repeat: no-repeat;" +
                 "background-position: 50% 50%;");
             document.body.appendChild(image);
