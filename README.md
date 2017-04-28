@@ -1,3 +1,6 @@
+# IMPORTANT: This code is deprecated. 
+The repo will be updated in the future
+
 # RiteTag Auto-Enhance Widget #
 
 ## UX Example ##
